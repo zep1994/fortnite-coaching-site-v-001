@@ -1,11 +1,15 @@
 <h2><%= @meeting.name %></h2>
-<table>
+<table class="show_form">
   <thead>
+    <% @meetings.each do |meeting| %>
+      <tbody>
       <tr class="tb-items">
-          <th>Name</th>
-          <th>Time</th>
-          <th>Type of Player</th>
+        <td><%= link_to meeting.name, meeting_path(meeting) %></td>
+        <td><%= link_to meeting.time, meeting_path(meeting) %></td>
+        <td><%= link_to meeting.type_player, meeting_path(meeting) %></td>
       </tr>
+    </tbody>
+      <% end %>
   </thead>
 
   <tbody>

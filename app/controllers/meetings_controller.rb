@@ -9,11 +9,23 @@ class MeetingsController < ApplicationController
   end
 
   def new
-    @meeting = Meeeting.new
+    @meeting = Meeting.new
   end
 
   def create
     @meeting = Meeting.new(meeting_params)
+    @meeting.save
+    redirect_to meeting_path(@meeting)
+  end
+
+  private
+
+  def meeting_params
+    params.require(:meeting).permit(
+      :name,
+      :time,
+      :type_player
+    )
   end
 
 end

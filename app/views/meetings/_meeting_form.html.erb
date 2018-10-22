@@ -1,0 +1,18 @@
+<%= form_for(@meeting) do |f| %>
+<table class="new_form">
+    <thead class="new_form">
+  <td><%= f.label :name %></td>
+  <td><%= f.text_field :name %><br /></td><br />
+
+  <td><%= f.label :time %></td>
+  <td><%= f.text_field :time %></td><br />
+
+  <td><%= f.label :type_player %><td>
+  <td><%= f.text_field :type_player %></td><br />
+
+   </thead>
+</table>
+
+  <%= f.submit %>
+
+<% end %>

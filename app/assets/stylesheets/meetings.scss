@@ -18,6 +18,7 @@ body
 {
  width:100%;
  min-width:980px;
+ background: #220a37;
 }
 #header
 {
@@ -65,7 +66,7 @@ body
  margin-top:3px;
  margin-bottom:3px;
  width:150px;
- border:1px solid #08298A;
+ border:1px solid #220a37;
  height:25px;
  padding-left:3px;
 }
@@ -74,7 +75,7 @@ body
  margin-top:3px;
  margin-bottom:3px;
  width:150px;
- border:1px solid #08298A;
+ border:1px solid #220a37;
  height:25px;
  padding-left:3px;
 }
@@ -84,7 +85,7 @@ body
  margin-top:20px;
  background-color:#084B8A;
  color:white;
- border:1px solid #08298A;
+ border:1px solid #220a37;
 }
 #wrapper
 {
@@ -331,12 +332,35 @@ a,
 	cursor: pointer;
 }
 
+*************************
+table
+*************************
+
+
 table {
   margin-left: 340px;
   width: auto;
 }
+
+.show_form {
+  margin-left: 340px;
+}
 th {
 padding: 30px;
+}
+
+.new_form {
+  margin-left: 180px;
+}
+
+.new_form input[type="text"]
+{
+ margin-top:3px;
+ margin-bottom:3px;
+ width:150px;
+ border:1px solid #220a37;
+ height:25px;
+ padding-left:3px;
 }
 
 .edit {
