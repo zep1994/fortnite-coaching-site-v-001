@@ -9,8 +9,19 @@
       </tr>
     </tbody>
   </thead>
-
+</table>
+<table class="show_form">
+  <thead>
+    <% @meeting.students.each do |student| %>
+      <tbody>
+      <tr class="tb-items">
+        <td class="table_items"> Name: <%= student.name %></td>
+      </tr>
+    </tbody>
+    <% end %>
+  </thead>
 </table>
 <div class="edit">
 <a href="#">Edit Meeting</a>
+<a href="#">Add Student</a>
 </div>
