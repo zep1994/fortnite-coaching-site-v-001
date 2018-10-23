@@ -1,0 +1,11 @@
+<h2>Signup!</h2>
+<%= form_for(@user) do |f| %>
+<table class="new_form">
+    <thead class="new_form">
+  <% if @user.errors[:name].present? %>
+    <td><%= f.text_field :name, :placeholder => "Cannot be blank" %><br /></td><br />
+  <% else %>
+    <td><%= f.text_field :name, :placeholder => "UserName" %><br /></td><br />
+  <% end %>
+  <%= f.submit "Create User" %>
+<% end %>
