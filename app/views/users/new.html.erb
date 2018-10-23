@@ -7,5 +7,11 @@
   <% else %>
     <td><%= f.text_field :name, :placeholder => "UserName" %><br /></td><br />
   <% end %>
+
+  <% if @user.errors[:password].present? %>
+    <td><%= f.password_field :password, :placeholder => "Cannot be blank" %><br /></td><br />
+  <% else %>
+    <td><%= f.password_field :password, :placeholder => "Password" %><br /></td><br />
+  <% end %>
   <%= f.submit "Create User" %>
 <% end %>

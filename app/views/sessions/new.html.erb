@@ -2,7 +2,8 @@
 <%= form_tag(sessions_path) do %>
 <table class="new_form">
     <thead class="new_form">
-    <td><%= text_field_tag :name, placeholder="UserName or email" %><br /></td>
+    <td><%= text_field_tag :name, placeholder = "UserName" %><br /></td>
+    <td><%= password_field_tag :password, placeholder="Password" %><br /></td>
   <td><input type="submit" class="login_button"></td>
   </thead>
 </table>

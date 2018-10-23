@@ -369,11 +369,54 @@ tr {
   margin-left: 180px;
 }
 
-.new_user input[type="text"]
+#password
 {
- margin-top:-30px;
+ margin-top: 28px;
  margin-bottom:3px;
- margin-left: -10px;
+ margin-left: 0px;
+ padding-left: 10px;
+ width:150px;
+
+ border:1px solid #220a37;
+ height:25px;
+ padding-left:3px;
+ display: block;
+}
+
+#user_password
+{
+ margin-top: -28px;
+ margin-bottom:3px;
+ margin-left: -5px;
+ padding-left: 10px;
+ width:150px;
+
+ border:1px solid #220a37;
+ height:25px;
+ padding-left:3px;
+ display: block;
+}
+
+#name
+{
+ margin-bottom:3px;
+ margin-top: 28px;
+ margin-left: -250px;
+ padding-left: 10px;
+ width:150px;
+
+ border:1px solid #220a37;
+ height:25px;
+ padding-left:3px;
+ display: block;
+}
+
+#user_name
+{
+ margin-bottom:3px;
+ margin-top: -28px;
+ margin-left: -160px;
+ padding-left: 10px;
  width:150px;
 
  border:1px solid #220a37;
@@ -390,6 +433,17 @@ tr {
  color:white;
  border:1px solid #220a37;
 }
+
+
+.new_form input[type="submit"]
+{
+height:25px;
+margin-top: -20px;
+background-color:#084B8A;
+color:white;
+border:1px solid #220a37;
+}
+
 
 
 .edit {
