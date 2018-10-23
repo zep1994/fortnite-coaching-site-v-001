@@ -1,4 +1,5 @@
 class MeetingsController < ApplicationController
+  before_action :authentication_required
 
   def index
     @meetings = Meeting.all
