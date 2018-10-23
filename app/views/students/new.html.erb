@@ -1,0 +1,11 @@
+<%= form_for([@meeting, @student]) do |f| %>
+<table class="new_form">
+    <thead class="new_form">
+  <td><%= f.label :name %></td>
+  <td><%= f.text_field :name %><br /></td><br />
+   </thead>
+</table>
+
+  <%= f.submit %>
+
+<% end %>

@@ -22,6 +22,10 @@
   </thead>
 </table>
 <div class="edit">
-<a href="#">Edit Meeting</a>
-<a href="#">Add Student</a>
+ <%= form_for([@meeting, @student]) do |f| %>
+  <form action="/meetings" method="POST">
+    <%= f.text_field :name %>
+    <%= f.submit %>
+ <% end %>
+ <a href="#">Edit Meeting</a>
 </div>
