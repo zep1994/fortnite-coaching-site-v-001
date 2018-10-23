@@ -1,0 +1,16 @@
+// Place all the styles related to the sessions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+input#name {
+  margin-left: 220px;
+}
+
+ .new_form input[type="submit"]
+{
+ height:25px;
+ margin-top: 0px;
+ background-color:#084B8A;
+ color:white;
+ border:1px solid #220a37;
+}
