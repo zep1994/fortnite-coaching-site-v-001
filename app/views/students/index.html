@@ -24,13 +24,8 @@
 <div class="edit">
  <%= form_for([@meeting, @student]) do |f| %>
   <form action="/meetings" method="POST">
-    <% if @student.errors[:name].present? %>
-      <%= f.text_field :name, placeholder => "Cannot be Blank" %>
-    <% else %>
-      <%= f.text_field :name %>
-    <% end %>
+    <%= f.text_field :name %>
     <%= f.submit %>
  <% end %>
- <p><%= link_to "Edit this meeting", edit_meeting_path %></p>
- <p><%= link_to "Home", root_path %></p><br />
+ <a href="#">Edit Meeting</a>
 </div>

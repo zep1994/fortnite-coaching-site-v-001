@@ -332,9 +332,9 @@ a,
 	cursor: pointer;
 }
 
-*************************
+***********************************************************
 table
-*************************
+***********************************************************
 
 
 table {
@@ -354,10 +354,10 @@ padding: 30px;
   margin-left: 90px;
 }
 
-.table_items:after {
-  content: "\a";
-  white-space: pre;
-}
+// .table_items:after {
+//   content: "\a";
+//   white-space: pre;
+// }
 
 .new_form {
   margin-left: 180px;
@@ -377,6 +377,36 @@ padding: 30px;
    margin-left: 15px;
  }
 
+ .edit input[type="text"]
+ {
+  margin-top:3px;
+  margin-bottom:3px;
+  width:150px;
+  border:1px solid #220a37;
+  height:25px;
+  padding-left:3px;
+ }
+
+ .edit input[type="submit"]
+ {
+  height:25px;
+  background-color:#220a37;
+  color:white;
+  border:1px solid #220a37;
+ }
+
+// .field_with_errors {
+//   border: 1px solid red;
+// }
+
+ td .field_with_errors input[type="text"]
+{
+ border:2px solid red;
+}
+
+div.field_with_errors input[type="text"] {
+  border: 2px solid red;
+}
 
 a:hover,
 .link:hover {

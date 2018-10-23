@@ -1,5 +1,9 @@
 class StudentsController < ApplicationController
 
+  def index
+    @students = Student.all
+  end
+
   def new
     @student = Student.new
   end
@@ -7,8 +11,18 @@ class StudentsController < ApplicationController
   def create
     @meeting = Meeting.find(params[:meeting_id])
     @student = @meeting.students.build(student_params)
-    @student.save
-    redirect_to meeting_path(@meeting)
+    if @student.save
+      redirect_to meeting_path(@meeting)
+    else
+      render "meetings/show"
+    end
+  end
+
+  def update
+    @student = Student.find(params[:id])
+    @student.update(student_params)
+
+    redirect_to meeting_path(@student.meeting)
   end
 
   private

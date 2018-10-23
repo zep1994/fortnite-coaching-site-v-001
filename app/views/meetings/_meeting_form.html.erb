@@ -2,13 +2,26 @@
 <table class="new_form">
     <thead class="new_form">
   <td><%= f.label :name %></td>
-  <td><%= f.text_field :name %><br /></td><br />
+  <% if @meeting.errors[:name].present? %>
+    <td><%= f.text_field :name, :placeholder => "Cannot be blank" %><br /></td><br />
+  <% else %>
+    <td><%= f.text_field :name %><br /></td><br />
+  <% end %>
+
 
   <td><%= f.label :time %></td>
-  <td><%= f.text_field :time %></td><br />
+  <% if @meeting.errors[:time].present? %>
+    <td><%= f.text_field :time, :placeholder => "Cannot be blank" %></td><br />
+  <% else %>
+    <td><%= f.text_field :time %></td><br />
+  <% end %>
 
   <td><%= f.label :type_player %><td>
-  <td><%= f.text_field :type_player %></td><br />
+    <% if @meeting.errors[:type_player].present? %>
+  <td><%= f.text_field :type_player, :placeholder => "Cannot be blank" %></td><br />
+  <% else %>
+    <td><%= f.text_field :type_player %></td><br />
+  <% end %>
 
    </thead>
 </table>

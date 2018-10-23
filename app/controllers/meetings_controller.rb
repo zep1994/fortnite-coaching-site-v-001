@@ -6,7 +6,7 @@ class MeetingsController < ApplicationController
 
   def show
     @meeting = Meeting.find(params[:id])
-    @student = @meeting.students.build
+    @student = Student.new
   end
 
   def new
@@ -15,8 +15,25 @@ class MeetingsController < ApplicationController
 
   def create
     @meeting = Meeting.new(meeting_params)
-    @meeting.save
-    redirect_to meeting_path(@meeting)
+    if @meeting.save
+      redirect_to meeting_url(@meeting)
+    else
+      @meetings = Meeting.all
+      render :new
+    end
+  end
+
+  def edit
+    @meeting = Meeting.find(params[:id])
+  end
+
+  def update
+    @meeting = Meeting.find(params[:id])
+    if @meeting.update(meeting_params)
+      redirect_to meeting_path(@meeting)
+    else
+      render :edit
+    end
   end
 
   private
