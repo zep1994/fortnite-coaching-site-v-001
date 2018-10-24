@@ -1,5 +1,5 @@
 <h2>Login!</h2>
-<%= form_tag(sessions_path) do %>
+<%= form_for @user, url: login_path, method: :post do |f|%>
 <table class="new_form">
     <thead class="new_form">
     <td><%= text_field_tag :name, placeholder = "UserName" %><br /></td>

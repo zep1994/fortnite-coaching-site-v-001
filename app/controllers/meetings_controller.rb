@@ -1,56 +1,52 @@
 class MeetingsController < ApplicationController
-  before_action :authentication_required
 
-  def index
-    @meetings = Meeting.all
+   def index
+    set_user
+    if params[:user_id]
+      @user = User.find(params[:user_id])
+      @meetings = @user.meetings
+   else
+     @meetings = Meeting.all
+   end
   end
 
-  def show
+   def show
+    set_user
     @meeting = Meeting.find(params[:id])
-    @student = Student.new
   end
 
-  def new
-    @meeting = Meeting.new
-  end
-
-  def create
-    @meeting = Meeting.new(meeting_params)
-    if @meeting.save
-      redirect_to meeting_url(@meeting)
+   def new
+    set_user
+    if params[:user_id]
+      @user_meetings = UserMeeting.new
     else
-      @meetings = Meeting.all
-      render :new
+      @meeting = Meeting.new
     end
   end
 
-  def edit
-    @meeting = Meeting.find(params[:id])
+   def create
+    @meeting = Meeting.create(meeting_params)
+    redirect_to meetings_path
   end
 
-  def update
-    @meeting = Meeting.find(params[:id])
-    if @meeting.update(meeting_params)
-      redirect_to meeting_path(@meeting)
+   def edit
+    set_user
+    if params[:user_id]
+      @user_meetings = UserMeeting.find_by(user_id: params[:user_id], meeting_id: params[:id])
+      @meeting = Meeting.find(params[:id])
     else
-      render :edit
+      @meeting = Meeting.find(params[:id])
     end
   end
 
-  def destroy
+   def update
     @meeting = Meeting.find(params[:id])
-    @meeting.destroy
-    redirect_to root_path
+    @meeting.update(meeting_params)
+    redirect_to meetings_path
   end
 
-  private
-
-  def meeting_params
-    params.require(:meeting).permit(
-      :name,
-      :time,
-      :type_player
-    )
+   private
+   def meeting_params
+    params.require(:meeting).permit(:name, :time, :type_player)
   end
-
 end

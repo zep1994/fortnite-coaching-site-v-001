@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
   post 'sessions' => 'sessions#create'
   get '/logout'=> 'sessions#destroy'
 
-  resources :users
-
-  resources :meetings do
-    resources :students
+  resources :users do
+    resources :meetings
   end
+
+
 
 
   get '/auth/:provider/callback' => 'sessions#create'
