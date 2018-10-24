@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :current_user
-  
+
 
   def authentication_required
     if !logged_in?
@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
    def logged_in?
     !!current_user
+  end
+
+  def require_login
+    return head(:forbidden) unless session.include? :user_id
   end
 
 end
