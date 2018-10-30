@@ -19,6 +19,8 @@ Your authentication system must also allow login from some other service. Facebo
 -----• You must include a nested new route with form that relates to the parent resource
 
 FIX AUTHORIZATION
+FIX OMNIAUTH
+FIX MEETINGS SHOWING IN OTHERS USERS
 
 -----• You must include a nested index or show route
 

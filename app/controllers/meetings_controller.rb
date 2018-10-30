@@ -5,14 +5,13 @@ class MeetingsController < ApplicationController
   def index
     #check params id
     if current_user.id == params[:user_id].to_i
-    @meetings = Meeting.all
+    @meetings = @user.meetings
   else
     redirect_to root_path
   end
   end
 
   def show
-    authenticate_user
     @meeting = Meeting.find(params[:id])
     @student = Student.new
   end
