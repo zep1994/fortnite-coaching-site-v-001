@@ -1,5 +1,6 @@
 class MeetingsController < ApplicationController
   before_action :authentication_required
+  before_action :require_login, only: [:index, :show]
 
   def index
     @meetings = Meeting.all
@@ -17,7 +18,7 @@ class MeetingsController < ApplicationController
   def create
     @meeting = Meeting.new(meeting_params)
     if @meeting.save
-      redirect_to meeting_url(@meeting)
+      redirect_to user_meeting_url(@meeting)
     else
       @meetings = Meeting.all
       render :new
@@ -25,13 +26,14 @@ class MeetingsController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @meeting = Meeting.find(params[:id])
   end
 
   def update
     @meeting = Meeting.find(params[:id])
     if @meeting.update(meeting_params)
-      redirect_to meeting_path(@meeting)
+      redirect_to user_meeting_path(@meeting)
     else
       render :edit
     end
@@ -51,6 +53,11 @@ class MeetingsController < ApplicationController
       :time,
       :type_player
     )
+  end
+
+
+  def require_login
+     return head(:forbidden) unless session.include? :user_id
   end
 
 end

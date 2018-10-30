@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
   get '/logout'=> 'sessions#destroy'
 
-  resources :students, only: [:index]
-  resources :users
 
+  resources :users do
   resources :meetings do
     resources :students
+  end
   end
 
 

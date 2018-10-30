@@ -9,14 +9,14 @@
   </thead>
   <% @meetings.each do |meeting| %>
   <tbody>
-    <td><%= link_to meeting.name, meeting_path(meeting) %></td>
-    <td><%= link_to meeting.time, meeting_path(meeting) %></td>
-    <td><%= link_to meeting.type_player, meeting_path(meeting) %></td>
+    <td><%= link_to meeting.name, user_meeting_path(@user, meeting) %></td>
+    <td><%= link_to meeting.time, user_meeting_path(@user, meeting) %></td>
+    <td><%= link_to meeting.type_player, user_meeting_path(@user,meeting) %></td>
   </tbody>
   <% end %>
 </table>
 <div class="edit">
-  <%= link_to "Create a new meeting", new_meeting_path %>
+  <%= link_to "Create a new meeting", new_user_meeting_path(@user) %>
   <p><%= link_to "Logout", logout_path %></p>
 </div>
 <!-- <div id="div1">

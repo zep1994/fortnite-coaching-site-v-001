@@ -23,7 +23,7 @@
   </thead>
 </table>
 <div class="edit">
- <%= form_for([@meeting, @student]) do |f| %>
+ <%= form_for([@user, @meeting, @student]) do |f| %>
   <form action="/meetings" method="POST">
     <% if @student.errors[:name].present? %>
       <%= f.text_field :name, placeholder => "Cannot be Blank" %>
@@ -32,7 +32,7 @@
     <% end %>
     <%= f.submit %>
  <% end %>
- <p><%= link_to "Edit this meeting", edit_meeting_path %></p>
- <%= link_to "Delete Meeting", meeting_path, :method => "delete", :class => "destroy" %>
- <p><%= link_to "Home", meetings_path %></p><br />
+ <p><%= link_to "Edit this meeting", edit_user_meeting_path(@user, @meeting) %></p>
+ <%= link_to "Delete Meeting", user_meeting_path(@user, @meeting), :method => "delete", :class => "destroy" %>
+ <p><%= link_to "Home", user_meetings_path(@user) %></p><br />
 </div>
