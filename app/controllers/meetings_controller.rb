@@ -1,11 +1,11 @@
 class MeetingsController < ApplicationController
-  before_action :authentication_required
+  #before_action :authenticate_user
   before_action :require_login, only: [:index, :show]
 
   def index
     #check params id
     if current_user.id == params[:user_id].to_i
-    @meetings = @user.meetings
+    @meetings = Meeting.all
   else
     redirect_to root_path
   end
