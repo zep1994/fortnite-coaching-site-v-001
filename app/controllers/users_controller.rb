@@ -1,11 +1,16 @@
 class UsersController < ApplicationController
 
   def show
-    if session[:user_id]
+    if session[:user_id] == params[:id].to_i
       set_user
     else
       redirect_to root_path
     end
+  end
+
+  def index
+    set_user
+    @users = User.all
   end
 
   def new
@@ -15,7 +20,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to meetings_path(@meetings)
+      redirect_to user_meetings_path(@user, @meetings)
     else
       render :new
     end
