@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'sessions' => 'sessions#create'
   get '/logout'=> 'sessions#destroy'
 
+  resources :students, only: [:index]
   resources :users
 
   resources :meetings do

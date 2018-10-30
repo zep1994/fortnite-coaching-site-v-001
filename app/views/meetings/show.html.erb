@@ -10,6 +10,7 @@
     </tbody>
   </thead>
 </table>
+<p>Students</p>
 <table class="show_form">
   <thead>
     <% @meeting.students.each do |student| %>
@@ -33,5 +34,5 @@
  <% end %>
  <p><%= link_to "Edit this meeting", edit_meeting_path %></p>
  <%= link_to "Delete Meeting", meeting_path, :method => "delete", :class => "destroy" %>
- <p><%= link_to "Home", root_path %></p><br />
+ <p><%= link_to "Home", meetings_path %></p><br />
 </div>

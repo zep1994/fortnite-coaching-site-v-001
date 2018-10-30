@@ -40,7 +40,7 @@ class MeetingsController < ApplicationController
   def destroy
     @meeting = Meeting.find(params[:id])
     @meeting.destroy
-    redirect_to root_path
+    redirect_to meetings_path
   end
 
   private

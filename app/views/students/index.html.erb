@@ -1,0 +1,10 @@
+<h2>Students</h2>
+<%= form_for(@students) do |f| %>
+ <form action="/meetings" method="POST">
+   <% if @student.errors[:name].present? %>
+     <%= f.text_field :name, placeholder => "Cannot be Blank" %>
+   <% else %>
+     <%= f.text_field :name %>
+   <% end %>
+   <%= f.submit %>
+<% end %>
