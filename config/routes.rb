@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/logout'=> 'sessions#destroy'
 
   resources :users do
-    resources :meetings
+    resources :meetings do
+    resources :students
+    end
   end
 
 

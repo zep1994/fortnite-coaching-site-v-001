@@ -24,7 +24,11 @@ class UsersController < ApplicationController
 
    def index
     set_user
+    if session[:user_id] == params[:id].to_i
     @users = User.all
+  else
+    redirect_to root_path
+  end
   end
 
    def edit

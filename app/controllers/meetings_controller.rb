@@ -1,18 +1,23 @@
 class MeetingsController < ApplicationController
 
    def index
+     if current_user.id == params[:user_id].to_i
     set_user
-    if params[:user_id]
       @user = User.find(params[:user_id])
       @meetings = @user.meetings
    else
-     @meetings = Meeting.all
+redirect_to root_path
    end
   end
 
    def show
+     if current_user.id == params[:user_id].to_i
     set_user
     @meeting = Meeting.find(params[:id])
+
+  else
+    redirect_to root_path
+  end
   end
 
    def new
