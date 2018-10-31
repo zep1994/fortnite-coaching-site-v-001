@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    if session[:user_id] == params[:id].to_i
+    if current_user.id == params[:id].to_i
       set_user
     else
       redirect_to root_path

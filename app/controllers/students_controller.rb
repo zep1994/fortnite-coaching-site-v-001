@@ -16,7 +16,7 @@ class StudentsController < ApplicationController
     @meeting = Meeting.find(params[:meeting_id])
     @student = @meeting.students.build(student_params)
     if @student.save
-      redirect_to meeting_path(@meeting)
+      redirect_to user_meeting_path(@user, @meeting)
     else
       render "meetings/show"
     end
@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
     @student = Student.find(params[:id])
     @student.update(student_params)
 
-    redirect_to meeting_path(@student.meeting)
+    redirect_to user_meeting_path(@student.meeting)
   end
 
   private

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :current_user
+#  before_action :current_user
 
 
   def authentication_required
@@ -21,6 +21,8 @@ class ApplicationController < ActionController::Base
     return head(:forbidden) unless session.include? :user_id
   end
 
-  
+  def set_user
+    @user = current_user
+  end
 
 end

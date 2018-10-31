@@ -2,9 +2,11 @@
 <%= form_tag(sessions_path) do %>
 <table class="new_form">
     <thead class="new_form">
-    <td><%= text_field_tag :name, placeholder = "UserName" %><br /></td>
+    <td><%= label :name, "Name" %>
+    <td><%= text_field_tag :name %><br /></td>
     <td><%= password_field_tag :password, placeholder="Password" %><br /></td>
   <td><input type="submit" class="login_button"></td>
+  <p><%= link_to('Log in with Github!', '/auth/github') %></p>
   </thead>
 </table>
 <% end %>

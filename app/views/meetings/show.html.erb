@@ -23,7 +23,7 @@
   </thead>
 </table>
 <div class="edit">
- <%= form_for([@user, @meeting, @student]) do |f| %>
+ <%= form_for([@user, @meetings, @student]) do |f| %>
   <form action="/meetings" method="POST">
     <% if @student.errors[:name].present? %>
       <%= f.text_field :name, placeholder => "Cannot be Blank" %>
