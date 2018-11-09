@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-github'
-
+gem 'thin'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
